@@ -24,6 +24,11 @@ class Api extends Component {
       }).then(res => res.data)
   )
 
+  getPopularSeries = (page = 1) => (
+      this.axios.get(`/tv/popular`, {
+        params: {page: page}
+      }).then(res => res.data.results)
+  )
 
   getMovies = (genre_id) => (
     this.axios.get('/discover/movie', {
@@ -67,6 +72,11 @@ class Api extends Component {
     }).then(res => res.data)
     )
 
+  getList = (list_id) => (
+    this.axios.get(`/list/{list_id}`,{
+      params: {list_id:list_id}
+    }).then(res => res.data)
+  )
 }
 
 

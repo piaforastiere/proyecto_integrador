@@ -154,3 +154,53 @@ text-align: center;
 .selectItem {
   margin-bottom: 20px;
 }
+
+/*SLIDER*/
+.landing-wrapper {
+  width: 99.9%;
+  height: 280px;
+  margin:20px auto;
+  padding:0;
+  position: relative;
+  overflow:hidden;
+  
+  cursor:pointer;
+}
+
+.landing-inner-content {
+  background: #FFF;
+  width: 2620px;
+  height: 280px;
+}
+
+.box {
+  position: relative;
+
+  width: 240px;
+  height: 240px;
+  margin: 20px 20px 0 0;
+  float: left;
+  overflow:hidden;
+}
+
+.box:first-of-type {
+  margin-left:20px;
+}
+
+.box:last-of-type {
+  margin-right:20px;
+}
+
+.box-content {
+  background: #000;
+  /*margin-left: auto;
+  margin-right: auto;*/
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 999;
+}
+
+.box-content img {
+  width: 100%;
+}

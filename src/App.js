@@ -4,8 +4,9 @@ import SelectComponent from './SelectComponent'
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
 
 import Navbar from './components/Navbar'
-import PopularMovies from './components/PopularMovies'
-
+import PopularMovies from './PopularMovies'
+import PopularSeries from './PopularSeries'
+import MiLista from './List'
 
 
 class App extends Component {
@@ -15,12 +16,10 @@ class App extends Component {
 
         <Navbar />
 
-        <PopularMovies />
+        {/* <PopularMovies />
 
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <SelectComponent/>
+        <PopularSeries />
+        <SelectComponent/> */}
 
 
 

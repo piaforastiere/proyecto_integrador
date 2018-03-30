@@ -69,18 +69,20 @@ h3 {
 `;
 
 
+
 const ListItem = ({listItem}) => (
 
 <div className="" style={{float:'right'}}>
+  {listItem.map((movie, i) => (
     <Card>
-         <CardImage src={'https://image.tmdb.org/t/p/w500'+listItem.image}/>
+         <CardImage src={'https://image.tmdb.org/t/p/w500'+ movie.poster_path}/>
       <CardData>
-        <h5 className="card-title">{listItem.name}</h5>
-        <p className="card-text">{listItem.overview}</p>
+        <h5 className="card-title">{movie.title || movie.original_name}</h5>
+        <p className="card-text">{movie.overview}</p>
         <Button title="Agregar a mi lista" type="primary" icon="far fa-heart"/>
       </CardData>
-
      </Card>
+   ))}
   </div>
 
 
