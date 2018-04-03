@@ -5,6 +5,9 @@ import MiLista from '../List'
 import PopularSeries from '../PopularSeries'
 import PopularMovies from '../PopularMovies'
 import Home from '../views/Home'
+import SeriePage from './SeriePage'
+import MoviePage from './MoviePage'
+
 
 
 const Navbar = () => (
@@ -40,12 +43,15 @@ const Navbar = () => (
 
   <div>
     <Switch>
-      
-      <Route path="/series" component={PopularSeries} />
-      <Route path="/peliculas" component={PopularMovies} />
+
+      <Route exact path="/series" component={PopularSeries} />
+      <Route path="/series/:serie_id" component={SeriePage}/>
+      <Route exact path="/peliculas" component={PopularMovies} />
+      <Route path="/peliculas/:serie_id" component={MoviePage}/>
       <Route path="/mi_lista" component={MiLista} />
     </Switch>
   </div>
+
   </div>
 
 )

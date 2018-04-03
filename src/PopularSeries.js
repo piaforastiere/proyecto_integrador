@@ -4,6 +4,7 @@ import Api from './Api'
 import Button from './components//Button'
 import ListItem from './components/ListItem'
 import GridItem from './components/GridItem'
+import ItemSection from './components/ItemSection'
 
 
 
@@ -31,20 +32,39 @@ componentDidMount() {
    })
  )
   }
-  
+
 
       render() {
 
         const popularSeries = this.state.popularSeries
 
-        const type = this.state.type
+        const {type} = this.state
 
           return (
 
-          <div>
-            <GridItem moviesGrid={popularSeries} type={type}/>
+            <section className="items-section ">
+            <div className="items-section-body">
+            <div className="row">
+              <div className="landing-inner-content">
+            <ul>
+            {popularSeries.map(popularSerie =>
 
-          </div>
+                <li>
+                  {/* <GridItem movieGrid={popularSerie} type={type} key={popularSerie.id}/> */}
+                  <ItemSection itemsSection={popularSerie} displayType={type} key={popularSerie.id}/>
+                </li>
+
+
+            )}
+
+
+          </ul>
+        </div>
+        </div>
+        </div>
+
+        </section>
+
 
         )
       }

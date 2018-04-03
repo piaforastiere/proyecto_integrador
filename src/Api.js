@@ -66,9 +66,9 @@ class Api extends Component {
     }).then(res => res.data)
   )
 
-  multiSearch = (page = 1) => (
+  multiSearch = (query, page = 1) => (
     this.axios.get(`/search/multi`,{
-      params: {page:page}
+      params: {page:page, query}
     }).then(res => res.data)
     )
 

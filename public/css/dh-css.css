@@ -83,6 +83,7 @@ The below snippet of CSS must be included into your project. Future release may 
 .items-section-body {
     position: relative;
     min-height: 271px;
+    
 }
 
 .grid-item {

@@ -26,7 +26,7 @@ border-radius: 8px;
 display: inline-block;
 flex-wrap: wrap;
 justify-content: space-between;
-width: 48%;
+width: 44%;
 `;
   const CardImage = styled.img`
     width: 30%;
@@ -67,23 +67,27 @@ h3 {
 
 }
 `;
+const CardDataText = styled.p`
+  text-align: center;
+  font-size: 12px;
+`;
 
 
 
 const ListItem = ({listItem}) => (
 
-<div className="" style={{float:'right'}}>
-  {listItem.map((movie, i) => (
+
+
     <Card>
-         <CardImage src={'https://image.tmdb.org/t/p/w500'+ movie.poster_path}/>
+         <CardImage src={'https://image.tmdb.org/t/p/w500'+ listItem.poster_path}/>
       <CardData>
-        <h5 className="card-title">{movie.title || movie.original_name}</h5>
-        <p className="card-text">{movie.overview}</p>
+        <h5 className="card-title">{listItem.title || listItem.original_name}</h5>
+        <CardDataText>{listItem.overview}</CardDataText>
         <Button title="Agregar a mi lista" type="primary" icon="far fa-heart"/>
       </CardData>
      </Card>
-   ))}
-  </div>
+
+
 
 
 

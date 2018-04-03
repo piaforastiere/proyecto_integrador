@@ -1,25 +1,11 @@
 import React, { Component } from 'react';
 import Api from '../Api'
-
-
-//capturo lo que ponen en el input y hago un filter
-
-// handleOnChange = e =>{
-//   const searchValue = e.target
-//   this.setState({
-//     data : searchValue,
-//     loading: true
-//   })
-//   if (serie.name || pelicula.name  === data) {
-//     //
-//   } else {
-//     //
-//   }
-// }
+import { Link } from 'react-router-dom'
 
 class SearchBox extends Component {
   constructor() {
     super();
+    this.api = new Api()
     this.state = {
       search: "",
       multiSearch : [],
@@ -39,31 +25,41 @@ class SearchBox extends Component {
   //query... y se lo paso como URI???
 
   updateSearch = (e) => {
-    const enter = e.which || e.keyCode
-    const search = e.target.value
+    // const enter = e.which || e.keyCode
+    const search = this.state.search
     //PASAR SEARCH COMO QUERY
-    if (enter === 13) {
+    // if (enter === 13) {
       this.api.multiSearch(search).then( data =>
-      console.log(data)||
+      console.log(data.results)||
       this.setState ({
-        multiSearch: data,
+        multiSearch: data.results,
         searchLoading: false
       })
     )
-    }
+    // }
+  }
+  handleSubmit = e => {
+    e.preventDefault()
   }
 
 
 
   render() {
+    const {multiSearch}  = this.state
+
 
     return(
       <div className="row">
-        <form  className="form-inline my-2 my-md-0">
+        <form  onSubmit={this.handleSubmit} className="form-inline my-2 my-md-0 dropdown">
           <input onKeyUp={this.updateSearch} onChange={this.handleOnChange} type="text"  placeholder="Buscar Película o Serie" className="form-control" value={this.state.search}/>
-          {/* <button type="submit" className="form-control" aria-label="Search">
-              <i className="fas fa-search" style={{color:'#757575'}}></i>
-          </button> */}
+
+          {multiSearch.length > 0 && (
+            <div className="dropdown-menu show">
+              {multiSearch.map(result =>
+              <Link to={(result.media_type === 'movie' ? '/peliculas' : '/series')+'/'+result.id} className="dropdown-item">{result.name || result.title || result.original_name || result.original_title}</Link>
+            )}
+            </div>
+          )}
         </form>
       </div>
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Select from './Select'
 import Api from './Api'
-import styled from 'styled-components';
 import Button from './components/Button'
 import ListItem from './components/ListItem'
 
