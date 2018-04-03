@@ -8,6 +8,7 @@ import PopularMovies from './PopularMovies'
 import PopularSeries from './PopularSeries'
 import MiLista from './List'
 
+import Counter from './Counter'
 
 class App extends Component {
   render() {
@@ -15,7 +16,7 @@ class App extends Component {
       <div className="App">
 
         <Navbar />
-
+        <Counter />
         {/* <PopularMovies />
 
         <PopularSeries />

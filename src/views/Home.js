@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import PopularSeries from '../PopularSeries'
 import PopularMovies from '../PopularMovies'
 import MiLista from '../List'
-import Navbar from '../components/Navbar'
 
+
+
+const Home = () =>
 class Home extends Component {
   render(){
     return (
       <div>
-        <Navbar />
+
         <div className="container">
           <div className="row">
             <h5 class="items-section-title">Mi Lista <a href="">Ver todas</a></h5>

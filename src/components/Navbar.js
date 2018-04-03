@@ -43,7 +43,7 @@ const Navbar = () => (
 
   <div>
     <Switch>
-
+      <Route exact path="/" component={Home}/>
       <Route exact path="/series" component={PopularSeries} />
       <Route path="/series/:serie_id" component={SeriePage}/>
       <Route exact path="/peliculas" component={PopularMovies} />

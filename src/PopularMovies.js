@@ -8,6 +8,7 @@ import Select from './Select'
 import DisplaySection from './components/DisplaySection'
 
 
+
 class PopularMovies extends Component{
   constructor(){
     super()
@@ -53,7 +54,7 @@ componentDidMount() {
                 <div className="items-section-body">
                 <div className="row">
                   <div className="landing-inner-content">
-
+          
             <ul>
             {popularMovies.map(popularMovie =>
               <li key={popularMovie.id}>
