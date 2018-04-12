@@ -38,7 +38,7 @@ componentDidMount() {
 
         const popularSeries = this.state.popularSeries
 
-        const {type} = this.state
+        const {type} = this.state.type
 
           return (
 

@@ -24,17 +24,18 @@ class DisplaySection extends Component {
 
   chooseDisplay = (e) =>{
     const displayOption = e.target.value
+    console.log(displayOption);
     this.setState({
-      display: '',
+      display: displayOption,
       loading: true
     })
 
-    if (displayOption === 'grid') { console.log(displayOption) ||
+    if (displayOption === 'grid') {
       this.setState({
         display : displayOption,
         loading: false
       })
-    } else {console.log(displayOption) ||
+    } else {
       this.setState({
         display : displayOption,
         loading: false
@@ -43,26 +44,23 @@ class DisplaySection extends Component {
   }
   render(){
 
-    const { display } = this.state
+    const { display } = this.state.display
 
     return(
       <DisplaySectionDiv >
           <div className="row">
             <div className="col-lg-2">
-              <Select defaultLabel="Seleccione una opción" handleOnChange={this.changeType} value={this.state.inputValue}>
-                <option value='pelicula' >Peliculas</option>
+              <h5>Ordenar por:</h5>
+            </div>
+            <div className="col-lg-2">
+              <Select defaultLabel="Año" handleOnChange={this.changeType} value={this.state.inputValue}>
+                <option value='pelicula' ></option>
                 <option value='serie' >Series</option>
               </Select>
             </div>
             <div className="col-lg-2">
-              <Select defaultLabel="Seleccione una opción" handleOnChange={this.changeType} value={this.state.inputValue}>
-                <option value='pelicula' >Peliculas</option>
-                <option value='serie' >Series</option>
-              </Select>
-            </div>
-            <div className="col-lg-2">
-              <Select defaultLabel="Seleccione una opción" handleOnChange={this.changeType} value={this.state.inputValue}>
-                <option value='pelicula' >Peliculas</option>
+              <Select defaultLabel="Genero" handleOnChange={this.changeType} value={this.state.inputValue}>
+                <option value='pelicula' >Genero</option>
                 <option value='serie' >Series</option>
               </Select>
             </div>

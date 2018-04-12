@@ -4,81 +4,73 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { BrowserRouter} from 'react-router-dom';
-
-import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import { BrowserRouter } from 'react-router-dom';
 
 
-
-const initialState = {
-  listFavMovies : [{
-      id: 1,
-      favMovie : [],
-      count : 0
-  }]
+const inicialState = {
+  count : 0,
+  listMov : {
+    movies : [
+      //aca tengo que ponerle el ID de la pelicula que quiero agregar
+      //COMO CAPTURO ESE ID?????
+      {movieId : 0}
+    ]
+  },
+  listSer : {
+    series: []
+  }
 }
-
-const reducer = ( state = inicialState, action ) => {
+const counterReducer = (state = inicialState.count, action) => {
   switch (action.type) {
-    case 'ADD_FAV':
-    return {
-      ...state,
-      listFavMovies : [
-        ...state.listFavMovies, {
-          id: action.id,
-          favMovie: action.value,
-          count + 1
-        }
-      ]
-    },
-    case 'REMOVE_FAV':
-    const favIndex = state.listFavMovies.findIndex (
-      f => f.id === action.id
-    )
-    return {
-      ...state,
-      listFavMovies : [
-        ...state.listFavMovies.slice(0,favIndex),
-        ...state.listFavMovies.slice(favIndex + 1)
-      ]
-    }
+    case 'ADD_TO_COUNT':
+    return state + 1
+    case 'DELETE_TO_COUNT':
+    return state - 1
+
     default:
-    return state
+      return state
+
   }
 }
 
+// const listMovReducer = (state = inicialState.counter, action) => {
+//   switch (action.type) {
+//     case 'ADD_TO_FAV':
+//     return { ...state,
+//       listMov : [
+//         ...state.movies, {
+//           action.movieId
+//         }
+//       ]
+//     }
+//     case 'DELETE_TO_FAV':
+//     const listMovIndex = state.todos.findIndex(t => t.movieId === movieId)
+//     return { ...state,
+//       listMov : [
+//         ...state.listMov.slice(0, listMovIndex),
+//         ...state.listMov
+//       ]
+//     }
+//
+//     default:
+//       return state
+//
+//   }
+// }
+
+const store = global.store = createStore(counterReducer)
 
 
-
-const store =  global.store = createStore(reducer)
-
-store.dispatch({
-  type: 'FETCH_REQUEST'
-})
-fetch('http://www.google.com')
-.then(res => {
-  if (res.status !== 200) {
-    throw new Error('Lo sentimos, pero su cambio no se ha podido aplicar')
-  } return res.json()
-})
-.then (json =>{
-  store.dispatch({
-    type: 'FETCH_SUCCESS'
-  })
-})
-.catch ( err => {
-  store.dispatch({
-    type: 'FETCH_FAILURE'
-  })
-})
 
 ReactDOM.render(
-  <Provider  store={store}>
-  <BrowserRouter>
-
+<BrowserRouter>
+  <Provider store = {store}>
     <App />
-  </BrowserRouter>
 </Provider>
+</BrowserRouter>
+
   , document.getElementById('root'));
 registerServiceWorker();

@@ -8,23 +8,28 @@ import PopularMovies from './PopularMovies'
 import PopularSeries from './PopularSeries'
 import MiLista from './List'
 
-import Counter from './Counter'
+
+
 
 class App extends Component {
   render() {
     return (
+
       <div className="App">
 
+          <div>
         <Navbar />
-        <Counter />
+
         {/* <PopularMovies />
 
         <PopularSeries />
         <SelectComponent/> */}
 
+        </div>
 
 
       </div>
+
     );
   }
 }

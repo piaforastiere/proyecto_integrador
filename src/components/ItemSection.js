@@ -17,7 +17,7 @@ const ItemSection =({itemsSection, displayType, loading, type}) => {
   )
 }
 
-ItemSection.PropTypes ={
+ItemSection.propTypes ={
 
   type : PropTypes.oneOf(['list', 'grid']),
 }

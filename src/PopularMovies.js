@@ -42,19 +42,28 @@ componentDidMount() {
 
         const popularMovies = this.state.popularMovies
 
-        const {type} = this.state
+        const {type} = this.state.type
 
-        const { display } = this.state
-        console.log(display)
+        const { display } = this.state.display
+
           return (
 
 <div>
-          <DisplaySection />
+
+          <div className="row">
+            <DisplaySection />
+            {/* <button type="button" className="btn btn-light mdi mdi-view-grid" onClick={this.chooseDisplay} value='grid' aria-label="Left Align">
+
+            </button>
+            <button type="button" className="btn btn-light mdi mdi-view-list" onClick={this.chooseDisplay} value='list' aria-label="Left Align">
+
+            </button> */}
+          </div>
                 <section className="items-section ">
                 <div className="items-section-body">
                 <div className="row">
                   <div className="landing-inner-content">
-          
+
             <ul>
             {popularMovies.map(popularMovie =>
               <li key={popularMovie.id}>

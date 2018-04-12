@@ -93,7 +93,7 @@ const ListItem = ({listItem}) => (
 
 )
 
-ListItem.PropTypes = {
+ListItem.propTypes = {
   listItem : PropTypes.arrayOf(
     PropTypes.shape({
       name:PropTypes.string.isRequired,
