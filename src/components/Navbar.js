@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import SearchBox from './Search'
-import MiLista from '../List'
+import List from './List'
 import PopularSeries from '../PopularSeries'
 import PopularMovies from '../PopularMovies'
 import Home from '../views/Home'
@@ -48,7 +48,7 @@ const Navbar = () => (
       <Route path="/series/:serie_id" component={SeriePage}/>
       <Route exact path="/peliculas" component={PopularMovies} />
       <Route path="/peliculas/:serie_id" component={MoviePage}/>
-      <Route path="/mi_lista" component={MiLista} />
+      <Route path="/mi_lista" component={List} />
     </Switch>
   </div>
 

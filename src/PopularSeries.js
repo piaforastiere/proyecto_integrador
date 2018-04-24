@@ -51,7 +51,7 @@ componentDidMount() {
 
                 <li>
                   {/* <GridItem movieGrid={popularSerie} type={type} key={popularSerie.id}/> */}
-                  <ItemSection itemsSection={popularSerie} displayType={type} key={popularSerie.id}/>
+                  <ItemSection itemsSection={popularSerie} type={type} displayType={'grid'} key={popularSerie.id}/>
                 </li>
 
 

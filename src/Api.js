@@ -18,12 +18,12 @@ class Api extends Component {
     })
   }
 
-  
+
 
   getPopularMovies = (page = 1, ) => (
       this.axios.get(`/movie/popular`, {
         params: {page: page}
-      }).then(res => res.data)
+      }).then(res => res.data.results)
   )
 
 

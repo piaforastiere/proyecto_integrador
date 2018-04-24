@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Select from './Select'
 
 import DisplaySection from './components/DisplaySection'
+import SelectComponent from './SelectComponent'
 
 
 
@@ -16,9 +17,7 @@ class PopularMovies extends Component{
     this.state = {
       popularMovies : [],
       loading: false,
-      type: 'movie',
-       display : '',
-
+      type: 'peliculas',
     }
   }
 
@@ -26,12 +25,13 @@ componentDidMount() {
   this.setState({
     loading: true
   })
-   this.api.getPopularMovies().then( data =>
+   this.api.getPopularMovies().then( results =>
    //console.log(data)||
    this.setState ({
-     popularMovies: data.results,
-     loading: false,
-     type: 'movie'
+     popularMovies: results,
+     type: 'peliculas',
+     loading: false
+
    })
  )
   }
@@ -42,16 +42,17 @@ componentDidMount() {
 
         const popularMovies = this.state.popularMovies
 
-        const {type} = this.state.type
+        const type = this.state.type
 
-        const { display } = this.state.display
+
 
           return (
 
 <div>
 
           <div className="row">
-            <DisplaySection />
+
+
             {/* <button type="button" className="btn btn-light mdi mdi-view-grid" onClick={this.chooseDisplay} value='grid' aria-label="Left Align">
 
             </button>
@@ -67,7 +68,7 @@ componentDidMount() {
             <ul>
             {popularMovies.map(popularMovie =>
               <li key={popularMovie.id}>
-                <ItemSection itemsSection={popularMovie} displayType={display} type={type} key={popularMovie.id}/>
+                <ItemSection itemsSection={popularMovie} displayType={'grid'} type={type} key={popularMovie.id}/>
             </li>
           )}
         </ul>

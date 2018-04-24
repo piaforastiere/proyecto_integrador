@@ -108,7 +108,7 @@ class SelectComponent extends Component {
     })
     if (type === 'pelicula') {
       this.api.getMovieDetail(selection_id).then(data => {
-      //  console.log(data) ||
+      console.log(data) ||
       this.setState({
           movie: mapearPelicula(data),
           movieLoading: false,
@@ -116,7 +116,7 @@ class SelectComponent extends Component {
       })
     } else{
       this.api.getSerieDetail(selection_id).then( data => {
-        //console.log(data) ||
+        console.log(data) ||
         this.setState({
           movie: mapearSerie(data),
           movieLoading: false,
@@ -154,7 +154,15 @@ class SelectComponent extends Component {
           </Select>
           {genreListLoading &&
           <div>
-            Cargando...
+            <section class="items-section">
+                <div class="items-section-body">
+                    <div class="dimmer">
+                        <div class="loading">
+                            <i class="mdi mdi-loading" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
           </div>}
           {genre.length  > 0 && (
             <Select defaultLabel="Seleccione un genero" handleOnChange={this.changeGenre} value={this.state.inputValue}>
@@ -163,7 +171,15 @@ class SelectComponent extends Component {
           )}
           {genreSelectedLoading  ?
           <div>
-            Cargando...
+            <section class="items-section">
+                <div class="items-section-body">
+                    <div class="dimmer">
+                        <div class="loading">
+                            <i class="mdi mdi-loading" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
           </div>
 
           : moviesByGenre.length > 0 &&(
@@ -174,7 +190,15 @@ class SelectComponent extends Component {
           }
           {movieLoading ?
             <div>
-              Cargando...
+              <section class="items-section">
+                  <div class="items-section-body">
+                      <div class="dimmer">
+                          <div class="loading">
+                              <i class="mdi mdi-loading" aria-hidden="true"></i>
+                          </div>
+                      </div>
+                  </div>
+              </section>
             </div>
             : movie && (
               <ListItem listItem={movie}/>

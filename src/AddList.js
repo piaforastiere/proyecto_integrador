@@ -4,51 +4,54 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Button from './components/Button'
 
-const FavList = ({listFavMovies, onClick, onRemoveFav}) =>
-<section>
-  <h2>
-    Mis Peliculas favoritas
-  </h2>
-  <Button onClick={ e => {
-    e.preventDefault()
-    onClick(uuid(), count.value, target.value)
-  }} title='Agregar'/>
-  <ul>
-    {listFavMovies.map(movie =>
-      <li key={movie.id}>
-        {movie.name}
-        <button onClick= {e => onRemoveFav(movie.id)}>Eliminar</button>
-      </li>
+import GridItem from './components/GridItem'
+import List from './components/List'
 
-    )}
-  </ul>
+class AddToFav extends Component{
 
+constructor(){
+  super()
+  this.state = {
+    addToList : [],
+    movieGrid: [],
+    counter : 0
 
-</section>
-
-FavList.propTypes = {
-  onRemoveFav : PropTypes.func.isRequired
-}
-
-const mapStateToProps = state =>{
-  return{
-    listFavMovies: state.listFavMovies
   }
 }
 
-const addFav = (id ) => ({
-  type:'ADD_FAV',
-  id
-})
-
-const removeFav = (id ) => ({
-  type:'REMOVE_FAV',
-  id
-})
-
-const mapDispatchToProps = {
-  onClick: addFav,
-  onRemoveFav : removeFav
+addMovieToList = (e) => {
+  const selection_id = e.target.value
+  this.setState({
+    addToList : selection_id,
+    counter : this.state.counter + 1
+  })
+  console.log(this.state.addToList);
+  console.log(this.state.counter);
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(FavList)
+
+render(){
+
+  const addToList = this.state.addToList
+  const counter = this.state.counter
+
+  return(
+  <div>
+    <Button buttonType='primary iconBtn' icon='far fa-heart' onClick={this.addMovieToList} value={this.state.movieGrid} />
+    <List list={addToList} />
+    <div>
+      {this.state.counter}
+    </div>
+  </div>
+
+)
+}
+
+}
+
+
+
+
+
+
+export default AddToFav

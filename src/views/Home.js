@@ -5,7 +5,7 @@ import MiLista from '../List'
 import SelectComponent from '../SelectComponent'
 import Counter from '../components/Counter'
 
-
+import AddToFav from '../AddList'
 
 class Home extends Component {
   render(){
@@ -13,9 +13,7 @@ class Home extends Component {
       <div>
 
         <div className="container">
-          <div>
-            <Counter/>
-          </div>
+          
           <div className="row">
             <h5 class="items-section-title">Mi Lista <a href="">Ver todas</a></h5>
 
